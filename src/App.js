@@ -1,11 +1,9 @@
-import { AddHomeOutlined } from "@mui/icons-material";
-
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <AddHomeOutlined />
-      <h1>Hello World</h1>
+      <Header />
     </>
   );
 }
