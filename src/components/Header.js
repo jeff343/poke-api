@@ -9,9 +9,6 @@ import InputBase from '@mui/material/InputBase';
 import CatchingPokemon from '@mui/icons-material/CatchingPokemon';
 import SearchIcon from '@mui/icons-material/Search';
 
-// TODO: get search bar size and alignment right
-
-
 const Search = styled.div`
     position: relative;
     display: flex;
