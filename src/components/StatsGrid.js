@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 
 
 // will destructure pokemon.stats to create grid
-const StatsGrid = () => {
+const StatsGrid = ({ stats }) => {
 
     return (
         <Grid 
@@ -18,9 +18,9 @@ const StatsGrid = () => {
                 <Typography align="center">Defense</Typography>
             </Grid>
             <Grid item xs={6} sm={3}>
-                <Typography align="center">100</Typography>
-                <Typography align="center">100</Typography>
-                <Typography align="center">100</Typography>
+                <Typography align="center">{stats[0].base_stat}</Typography>
+                <Typography align="center">{stats[1].base_stat}</Typography>
+                <Typography align="center">{stats[2].base_stat}</Typography>
             </Grid>
             <Grid item xs={6} sm={3}>
                 <Typography align="center">Sp. Att</Typography>
@@ -28,9 +28,9 @@ const StatsGrid = () => {
                 <Typography align="center">Speed</Typography>
             </Grid>
             <Grid item xs={6} sm={3}>
-                <Typography align="center">100</Typography>
-                <Typography align="center">100</Typography>
-                <Typography align="center">100</Typography>
+                <Typography align="center">{stats[3].base_stat}</Typography>
+                <Typography align="center">{stats[4].base_stat}</Typography>
+                <Typography align="center">{stats[5].base_stat}</Typography>
             </Grid>
         </Grid>
     )
