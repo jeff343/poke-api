@@ -3,8 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography"
 
 
-
-// will return a styled tab for each pokemon type
 const TypeTab = ({ type }) => {
 
     const pokeType = typesArr.find((t) => t.type.toLowerCase() === type)

@@ -9,7 +9,7 @@ const InfoDisplay = ({ pokemon }) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
-    const pokeName = nameToUpper(pokemon.name)
+    const pokeName = nameToUpper(pokemon.name);
 
     return (
         <Grid 
@@ -17,9 +17,8 @@ const InfoDisplay = ({ pokemon }) => {
             component='article' 
             spacing={3}
             sx={{
-                maxWidth: 800,
-                marginLeft: 0,
-                marginTop: 5
+                width: '90%',
+                margin: 'auto'
             }}    
         >
             <Grid 
@@ -65,10 +64,23 @@ const InfoDisplay = ({ pokemon }) => {
                     )
                 })}
             </Grid>
-            <Grid item>
+            <Grid 
+                item 
+                display='flex' 
+                justifyContent='space-between' 
+                alignItems='center'
+                xs={6}
+            >
                 <Typography variant ='h6' component='h4'>
-                    
+                    Abilities:
                 </Typography>
+                {pokemon.abilities.map((ability) => {
+                    return (
+                        <Typography key={ability.ability.name}>
+                            {ability.ability.name.toUpperCase()}
+                        </Typography>
+                    )
+                })}
             </Grid>
         </Grid>
 
