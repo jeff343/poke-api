@@ -4,9 +4,11 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
 
 
 const Searchbar = ({ allPokemon }) => {
+    const [value, setValue] = useState('')
 
     return (
         <Grid 
@@ -30,6 +32,9 @@ const Searchbar = ({ allPokemon }) => {
             >
                 <FormControl component='form' sx={{ width: 350 }}>
                     <Autocomplete 
+                        onChange={(event, newValue) => {
+                            setValue(newValue);
+                        }}
                         id="search-box"
                         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                         options={allPokemon}
@@ -56,6 +61,8 @@ const Searchbar = ({ allPokemon }) => {
                         marginLeft: {md: 0}
                     }}
                     color='secondary'
+                    disabled={!value}
+                    onClick={() => console.log(value)}
                 >
                     Search
                 </Button>
