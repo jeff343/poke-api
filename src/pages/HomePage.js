@@ -30,8 +30,8 @@ const HomePage = () => {
                 setAllPokemon(data.results);
             } catch (error) {
                 console.log(error);
-            }
-        }
+            };
+        };
 
     
         getPokemon();
@@ -50,7 +50,7 @@ const HomePage = () => {
                     spacing={3}
                     >
                     <Grid item md={8}>
-                        <Searchbar />
+                        <Searchbar allPokemon={allPokemon}/>
                         <InfoDisplay pokemon={pokemon} />
                     </Grid>
                     <Grid 

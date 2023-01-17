@@ -1,13 +1,12 @@
 import Grid from '@mui/material/Unstable_Grid2';
 import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
 import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-const Searchbar = () => {
-
+const Searchbar = ({ allPokemon }) => {
 
     return (
         <Grid 
@@ -30,14 +29,13 @@ const Searchbar = () => {
                 alignItems="center"
             >
                 <FormControl component='form' sx={{ width: 350 }}>
-                        <TextField 
-                            id="filled-search"
-                            label="Search"
-                            type="Search"
-                            variant="standard"
-                            color="secondary"
-                        />
-                        <FormHelperText>Search by name or number</FormHelperText>
+                    <Autocomplete 
+                        id="search-box"
+                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                        options={allPokemon}
+                        getOptionLabel={(option) => option.name.toUpperCase()}
+                        renderInput={(params) => <TextField {...params} label="Search" color="secondary" />}
+                    />
                 </FormControl>
             </Grid>
             <Grid 
@@ -66,6 +64,4 @@ const Searchbar = () => {
     )
 }
 
-export default Searchbar
-
-
+export default Searchbar;

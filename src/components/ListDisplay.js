@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
@@ -30,8 +29,8 @@ const ListDisplay = ({ allPokemon }) => {
             <List>
                 {pokeArr.map((pokemon, idx) => {
                     return (
-                        <ListItem>
-                            <ListItemText primary={`No ${idx+1}: ${pokemon.name.toUpperCase()}`} key={pokemon.name} />
+                        <ListItem key={pokemon.name}>
+                            <ListItemText primary={pokemon.name.toUpperCase()} />
                         </ListItem>
                     )
                 })}
