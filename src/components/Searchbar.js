@@ -7,8 +7,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
 
-const Searchbar = ({ allPokemon }) => {
-    const [value, setValue] = useState('')
+const Searchbar = ({ setQuery, allPokemon }) => {
+    const [value, setValue] = useState('');
+
+    const handleClick = () => {
+        setQuery(value.name);
+    };
+
 
     return (
         <Grid 
@@ -62,7 +67,7 @@ const Searchbar = ({ allPokemon }) => {
                     }}
                     color='secondary'
                     disabled={!value}
-                    onClick={() => console.log(value)}
+                    onClick={() => handleClick()}
                 >
                     Search
                 </Button>

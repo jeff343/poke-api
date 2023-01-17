@@ -3,13 +3,19 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { useState } from "react";
 
 
-const ListDisplay = ({ allPokemon }) => {
-    const [listStart, setListSlice] = useState(0);
+const ListDisplay = ({ active, allPokemon }) => {
+
     const pokeSlice = (arr) => {
-        return arr.slice(listStart, 10);
+        const poke = [];
+        const roundedIndex = Math.floor(active/10) * 10;
+        for (let i = roundedIndex; i < (roundedIndex + 10); i++) {
+            poke.push({
+                name: arr[i].name, 
+                num: i});
+        };
+        return poke;
     };
 
     const pokeArr = pokeSlice(allPokemon);
@@ -27,10 +33,15 @@ const ListDisplay = ({ allPokemon }) => {
                 Pokemon:
             </Typography>
             <List>
-                {pokeArr.map((pokemon, idx) => {
+                {pokeArr.map((pokemon) => {
                     return (
                         <ListItem key={pokemon.name}>
-                            <ListItemText primary={pokemon.name.toUpperCase()} />
+                            <ListItemText 
+                                primary={`No ${pokemon.num}: ${pokemon.name.toUpperCase()}`} 
+                                primaryTypographyProps={{
+                                    fontWeight: pokemon.num===active ? 'bold' : 'none'
+                                }}
+                            />
                         </ListItem>
                     )
                 })}
