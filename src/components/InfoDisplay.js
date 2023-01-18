@@ -2,6 +2,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import StatsGrid from './StatsGrid';
 import TypeTab from './TypeTab';
+import InfoModal from './InfoModal';
 
 const InfoDisplay = ({ pokemon }) => {
 
@@ -76,9 +77,7 @@ const InfoDisplay = ({ pokemon }) => {
                 </Typography>
                 {pokemon.abilities.map((ability) => {
                     return (
-                        <Typography key={ability.ability.name} marginLeft={2}>
-                            {ability.ability.name.toUpperCase()}
-                        </Typography>
+                        <InfoModal key={ability.ability.name} marginLeft={3} url={ability.ability.url} />
                     )
                 })}
             </Grid>
