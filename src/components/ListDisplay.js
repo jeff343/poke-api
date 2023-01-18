@@ -37,7 +37,7 @@ const ListDisplay = ({ active, allPokemon }) => {
                     return (
                         <ListItem key={pokemon.name}>
                             <ListItemText 
-                                primary={`No ${pokemon.num}: ${pokemon.name.toUpperCase()}`} 
+                                primary={`No ${pokemon.num + 1}: ${pokemon.name.toUpperCase()}`} 
                                 primaryTypographyProps={{
                                     fontWeight: pokemon.num===active ? 'bold' : 'none'
                                 }}

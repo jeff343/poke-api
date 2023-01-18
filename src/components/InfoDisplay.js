@@ -67,16 +67,16 @@ const InfoDisplay = ({ pokemon }) => {
             <Grid 
                 item 
                 display='flex' 
-                justifyContent='space-between' 
+                justifyContent='start' 
                 alignItems='center'
-                xs={6}
+                xs={12}
             >
                 <Typography variant ='h6' component='h4'>
                     Abilities:
                 </Typography>
                 {pokemon.abilities.map((ability) => {
                     return (
-                        <Typography key={ability.ability.name}>
+                        <Typography key={ability.ability.name} marginLeft={2}>
                             {ability.ability.name.toUpperCase()}
                         </Typography>
                     )
