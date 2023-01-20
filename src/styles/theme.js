@@ -12,6 +12,20 @@ const theme = createTheme({
         },
 
     },
+    typography: {
+        h3: {
+            '@media (max-width: 500px)': {
+                fontSize: '2rem',
+            },
+        },
+        h4: {
+            '@media (max-width: 500px)': {
+                fontSize: '1.5rem',
+            },
+        },
+    },
 });
+
+
 
 export default theme

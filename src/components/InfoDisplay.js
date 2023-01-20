@@ -16,7 +16,7 @@ const InfoDisplay = ({ pokemon }) => {
         <Grid 
             container 
             component='article' 
-            spacing={3}
+            spacing={2}
             sx={{
                 width: '90%',
                 margin: 'auto'
@@ -32,7 +32,7 @@ const InfoDisplay = ({ pokemon }) => {
                 <Typography variant='h3' component='h3'>
                     {pokeName}
                 </Typography>
-                <Typography variant='h4' component='h4' display='inline'>
+                <Typography variant='h4' component='h3' display='inline'>
                     No: {pokemon.id}
                 </Typography>
             </Grid>
@@ -49,13 +49,13 @@ const InfoDisplay = ({ pokemon }) => {
                     style={{ height: 300, width: 'auto' }}    
                 />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item sm={6} md={7}>
                 <Typography variant='h6' component='h4'>
                     Stats:
                 </Typography>
                 <StatsGrid stats={pokemon.stats}/>
             </Grid>
-            <Grid item display='flex'>
+            <Grid item display='flex' sm={6} md={5}>
                 <Typography variant='h6' component='h4'>
                     Type:
                 </Typography>

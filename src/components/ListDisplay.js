@@ -24,7 +24,9 @@ const ListDisplay = ({ active, allPokemon }) => {
         <Paper
             component='aside'
             sx={{
-                width: 300,
+                display: { xs: 'none', md: 'block' },
+                width: '80%',
+                minWidth: 300,
                 padding: 4,
                 margin: 'auto'
             }}
@@ -39,7 +41,8 @@ const ListDisplay = ({ active, allPokemon }) => {
                             <ListItemText 
                                 primary={`No ${pokemon.num + 1}: ${pokemon.name.toUpperCase()}`} 
                                 primaryTypographyProps={{
-                                    fontWeight: pokemon.num===active ? 'bold' : 'none'
+                                    fontWeight: pokemon.num===active ? 'bold' : 'none',
+                                    marginLeft: 2
                                 }}
                             />
                         </ListItem>

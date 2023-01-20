@@ -40,11 +40,18 @@ const Searchbar = ({ setQuery, allPokemon }) => {
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
+                        disablePortal
+                        sx={{
+                            "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
+                            {
+                              backgroundColor: "#bbdefb",
+                            },
+                          }}
                         id="search-box"
                         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                         options={allPokemon}
                         getOptionLabel={(option) => option.name.toUpperCase()}
-                        renderInput={(params) => <TextField {...params} label="Search" color="secondary" />}
+                        renderInput={(params) => <TextField {...params} label="Search" color="secondary"/>}
                     />
                 </FormControl>
             </Grid>

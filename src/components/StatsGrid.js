@@ -8,7 +8,7 @@ const StatsGrid = ({ stats }) => {
     return (
         <Grid 
             container 
-            spacing={2}
+            spacing={0}
             paddingTop={{ xs:0, lg: 2 }}
             marginLeft={2}
             >

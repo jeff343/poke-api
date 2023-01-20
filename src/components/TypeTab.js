@@ -21,7 +21,7 @@ const TypeTab = ({ type }) => {
                 marginLeft: 3
             }}
         >
-            <Typography component='p' color='white'>
+            <Typography component='p' color='white' paddingX={1}>
                 {pokeType.type}
             </Typography>
         </Box>
