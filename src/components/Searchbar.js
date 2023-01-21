@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
 
-const Searchbar = ({ setQuery, allPokemon }) => {
+const Searchbar = ({ setQuery, autoData }) => {
     const [value, setValue] = useState('');
 
     const handleClick = () => {
@@ -49,7 +49,7 @@ const Searchbar = ({ setQuery, allPokemon }) => {
                           }}
                         id="search-box"
                         onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                        options={allPokemon}
+                        options={autoData}
                         getOptionLabel={(option) => option.name.toUpperCase()}
                         renderInput={(params) => <TextField {...params} label="Search" color="secondary"/>}
                     />

@@ -31,8 +31,15 @@ const Header = () => {
                         <Typography
                             variant="h6"
                             component="h2"
+                            marginRight={5}
                         >
-                            PlaceHolder
+                            Pokemon
+                        </Typography>
+                        <Typography
+                            variant="h6"
+                            component="h2"
+                        >
+                            Berries
                         </Typography>
                     </Toolbar>
                 </Container>

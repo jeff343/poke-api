@@ -3,14 +3,11 @@ import Typography from '@mui/material/Typography';
 import StatsGrid from './StatsGrid';
 import TypeTab from './TypeTab';
 import InfoModal from './InfoModal';
+import { firstToUpper } from '../utils/firstToUpper';
 
 const InfoDisplay = ({ pokemon }) => {
 
-    const nameToUpper = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
-    const pokeName = nameToUpper(pokemon.name);
+    const pokeName = firstToUpper(pokemon.name);
 
     return (
         <Grid 

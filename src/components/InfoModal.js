@@ -39,12 +39,6 @@ const InfoModal = ({ url }) => {
         getPokemon();
     }, [url]);
 
-    // const findEnglish = (arr) => {
-    //     return arr.find((a) => a.language.name == "en")
-    // }
-
-    // const engDescription = findEnglish(modalData.effect_entries);
-
     return (
         <>
         {modalData &&

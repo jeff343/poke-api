@@ -7,7 +7,7 @@ import { baseUrl } from "../data/baseUrl";
 
 
 
-const HomePage = () => {
+const PokePage = () => {
     const [query, setQuery] = useState('bulbasaur');
     const [pokeIdx, setPokeIdx] = useState(0)
     const [pokemon, setPokemon] = useState();
@@ -55,7 +55,7 @@ const HomePage = () => {
                     spacing={3}
                     >
                     <Grid item md={8}>
-                        <Searchbar setQuery={setQuery} allPokemon={allPokemon}/>
+                        <Searchbar setQuery={setQuery} autoData={allPokemon}/>
                         <InfoDisplay pokemon={pokemon} />
                     </Grid>
                     <Grid 
@@ -74,4 +74,4 @@ const HomePage = () => {
     )
 };
 
-export default HomePage;
+export default PokePage;
