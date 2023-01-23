@@ -1,53 +1,53 @@
-import Grid from "@mui/material/Unstable_Grid2";
-import Searchbar from "../components/Searchbar";
-import InfoDisplay from "../components/InfoDisplay";
-import ListDisplay from "../components/ListDisplay";
-import { useEffect, useState } from "react";
-import { baseUrl } from "../data/baseUrl";
+// import Grid from "@mui/material/Unstable_Grid2";
+// import Searchbar from "../components/Searchbar";
+// import InfoDisplay from "../components/InfoDisplay";
+// import ListDisplay from "../components/ListDisplay";
+// import { useEffect, useState } from "react";
+// import { baseUrl } from "../data/baseUrl";
 
 
 
 const PokePage = () => {
-    const [query, setQuery] = useState('bulbasaur');
-    const [pokeIdx, setPokeIdx] = useState(0)
-    const [pokemon, setPokemon] = useState();
-    const [allPokemon, setAllPokemon] = useState();
+    // const [query, setQuery] = useState('bulbasaur');
+    // const [pokeIdx, setPokeIdx] = useState(0)
+    // const [pokemon, setPokemon] = useState();
+    // const [allPokemon, setAllPokemon] = useState();
 
 
-    useEffect(() => {
-        const getPokemon = async() => {
-            try {
-                const res = await fetch(baseUrl + "pokemon/" + query);
-                const data = await res.json();
-                setPokemon(data);
-                setPokeIdx(data.id - 1);
-                console.log('fetched');
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getPokemon();
-    }, [query]);
+    // useEffect(() => {
+    //     const getPokemon = async() => {
+    //         try {
+    //             const res = await fetch(baseUrl + "pokemon/" + query);
+    //             const data = await res.json();
+    //             setPokemon(data);
+    //             setPokeIdx(data.id - 1);
+    //             console.log('fetched');
+    //         } catch (error) {
+    //             console.log(error);
+    //         };
+    //     };
+    //     getPokemon();
+    // }, [query]);
 
-    useEffect(() => {
-        const getAllPokemon = async() => {
-            try {
-                const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
-                const data = await res.json();
-                setAllPokemon(data.results);
-            } catch (error) {
-                console.log(error);
-            };
-        };
+    // useEffect(() => {
+    //     const getAllPokemon = async() => {
+    //         try {
+    //             const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
+    //             const data = await res.json();
+    //             setAllPokemon(data.results);
+    //         } catch (error) {
+    //             console.log(error);
+    //         };
+    //     };
         
-        getAllPokemon();
-    }, []);
+    //     getAllPokemon();
+    // }, []);
 
 
 
     return (
         <>
-            {pokemon && allPokemon &&
+            {/* {pokemon && allPokemon &&
                 <Grid 
                     container 
                     maxWidth='lg'
@@ -69,7 +69,8 @@ const PokePage = () => {
                         <ListDisplay active={pokeIdx} allPokemon={allPokemon} />
                     </Grid>
                 </Grid>
-            }
+            } */}
+            <h1>PokePage</h1>
         </>
     )
 };

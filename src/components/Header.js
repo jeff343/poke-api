@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import CatchingPokemon from '@mui/icons-material/CatchingPokemon';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -16,7 +17,7 @@ import { useState } from 'react';
 const Header = () => {
 
     const [anchorElNav, setAnchorElNav] = useState(null);
-  
+
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
     };
@@ -29,32 +30,61 @@ const Header = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <IconButton sx={{ display: { xs: 'none', md: 'flex'}}}>
+                    <IconButton 
+                        sx={{ display: { xs: 'none', md: 'flex'}}
+
+                        }
+                        component={NavLink}
+                        to={{
+                            pathname: '/'
+                        }}
+                    >
                         <CatchingPokemon />
                     </IconButton>
                     <Typography
-                        sx={{ display: { xs: 'none', md: 'flex'}}}
+                        sx={{ 
+                            display: { xs: 'none', md: 'flex'},
+                            textDecoration: 'none',
+                            color: 'white'
+                        }}
                         variant="h5"
-                        component="h1"
+                        component={NavLink}
+                        to={{
+                            pathname: '/'
+                        }}
                         marginLeft={1}
                         marginRight={5}
                     >
                         PokeAPI
                     </Typography>
                     <Typography 
-                        sx={{ display: { xs: 'none', md: 'flex'}}}
+                        sx={{ 
+                            display: { xs: 'none', md: 'flex'},
+                            textDecoration: 'none',
+                            color: 'white'
+                        }}
                         variant="h6"
-                        component="h2"
+                        component={NavLink}
+                        to={{
+                            pathname: '/pokemon'
+                        }}
                         marginRight={5}
                     >
                         Pokemon
                     </Typography>
                     <Typography
-                        sx={{ display: { xs: 'none', md: 'flex'}}}
+                        sx={{ 
+                            display: { xs: 'none', md: 'flex'},
+                            textDecoration: 'none',
+                            color: 'white'
+                        }}
                         variant="h6"
-                        component="h2"
+                        component={NavLink}
+                        to={{
+                            pathname: '/berry'
+                        }}
                     >
-                        Berries
+                       Berries
                     </Typography>
 
                     <Box sx={{flexGrow: 1, display: { xs: 'flex', md: 'none'}}}>
@@ -87,10 +117,31 @@ const Header = () => {
                             }}
                         >
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Pokemon</Typography>
+                                <Typography 
+                                    sx={{ 
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}
+                                    textAlign="center"
+                                    component={NavLink}
+                                    to={{
+                                        pathname: '/pokemon'
+                                    }}
+                                >
+                                    Pokemon</Typography>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Berries</Typography>
+                                <Typography 
+                                    sx={{ 
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}
+                                    textAlign="center"
+                                    component={NavLink}
+                                    to={{
+                                        pathname: '/berry'
+                                    }}
+                                >Berries</Typography>
                             </MenuItem>
                         </Menu>
                         <IconButton 
@@ -99,16 +150,25 @@ const Header = () => {
                                 marginY: 'auto',
                                 marginLeft: '30%'
                             }}
+                            component={NavLink}
+                            to={{
+                                pathname: '/'
+                            }}
                         >
                             <CatchingPokemon />
                         </IconButton>
                         <Typography
                             sx={{
                                 display: { xs: 'flex', md: 'none' },
-                                marginY: 'auto'
+                                marginY: 'auto',
+                                textDecoration: 'none',
+                                color: 'white'
                             }}
                             variant="h5"
-                            component="h1"
+                            component={NavLink}
+                            to={{
+                                pathname: '/'
+                            }}
                             marginLeft={1}
                             marginRight={5}
                         >
