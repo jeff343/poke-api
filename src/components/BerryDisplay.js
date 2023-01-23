@@ -13,7 +13,7 @@ import { firstToUpper } from "../utils/firstToUpper";
 const BerryDisplay = ({ berry, item }) => {
 
     return(
-        <Grid container component="article" marginTop={3}>
+        <Grid container component="article">
             <Grid item md={6} textAlign='center'>
                 <Typography component="h2" variant='h2'>
                     {firstToUpper(berry.name)}
@@ -31,7 +31,7 @@ const BerryDisplay = ({ berry, item }) => {
             </Grid>
             <Grid item xs={12} md={6}>
                 <TableContainer component={Paper} sx={{ maxWidth: 500, margin: 'auto' }}>
-                    <Table sx={{ minWidth: 300 }} aria-label="flavor table">
+                    <Table sx={{ minWidth: 200 }} aria-label="flavor table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Flavor</TableCell>
