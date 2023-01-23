@@ -10,12 +10,11 @@ import Paper from '@mui/material/Paper';
 import { firstToUpper } from "../utils/firstToUpper";
 
 
-// will receive data from berry and item endpoints
 const BerryDisplay = ({ berry, item }) => {
 
     return(
         <Grid container component="article" marginTop={3}>
-            <Grid item xs={6} textAlign='center'>
+            <Grid item md={6} textAlign='center'>
                 <Typography component="h2" variant='h2'>
                     {firstToUpper(berry.name)}
                 </Typography>
@@ -30,9 +29,9 @@ const BerryDisplay = ({ berry, item }) => {
                     {item.effect_entries[0].effect}
                 </Typography>
             </Grid>
-            <Grid item>
-                <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 300}} aria-label="flavor table">
+            <Grid item xs={12} md={6}>
+                <TableContainer component={Paper} sx={{ maxWidth: 500, margin: 'auto' }}>
+                    <Table sx={{ minWidth: 300 }} aria-label="flavor table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Flavor</TableCell>
