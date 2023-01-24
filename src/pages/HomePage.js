@@ -2,48 +2,48 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
-// import Grid from "@mui/material/Unstable_Grid2";
-// import InfoDisplay from "../components/InfoDisplay";
-// import BerryDisplay from "../components/BerryDisplay";
-// import { baseUrl } from "../data/baseUrl";
-// import { useState, useEffect } from "react";
+import Grid from "@mui/material/Unstable_Grid2";
+import InfoDisplay from "../components/InfoDisplay";
+import BerryDisplay from "../components/BerryDisplay";
+import { baseUrl } from "../data/baseUrl";
+import { useState, useEffect } from "react";
 
 
 const HomePage = () => {
-    // const [pokemon, setPokemon] = useState();
-    // const [berry, setBerry] = useState();
-    // const [berryItem, setBerryItem] = useState();
+    const [pokemon, setPokemon] = useState();
+    const [berry, setBerry] = useState();
+    const [berryItem, setBerryItem] = useState();
 
-    // useEffect(() => {
-    //     const getPokemon = async() => {
-    //         try {
-    //             const res = await fetch(baseUrl + "pokemon/1");
-    //             const data = await res.json();
-    //             setPokemon(data);
-    //             console.log('fetched');
-    //         } catch (error) {
-    //             console.log(error);
-    //         };
-    //     };
-    //     getPokemon();
-    // }, []);
+    useEffect(() => {
+        const getPokemon = async() => {
+            try {
+                const res = await fetch(baseUrl + "pokemon/1");
+                const data = await res.json();
+                setPokemon(data);
+                console.log('fetched');
+            } catch (error) {
+                console.log(error);
+            };
+        };
+        getPokemon();
+    }, []);
 
-    // useEffect(() => {
-    //     const getBerry = async() => {
-    //         try {
-    //             const res = await fetch(baseUrl + "berry/1");
-    //             const data = await res.json();
-    //             setBerry(data);
-    //             const itemRes = await fetch(data.item.url);
-    //             const itemData = await itemRes.json();
-    //             setBerryItem(itemData);
-    //             console.log('fetched');
-    //         } catch (error) {
-    //             console.log(error);
-    //         };
-    //     };
-    //     getBerry();
-    // }, []);
+    useEffect(() => {
+        const getBerry = async() => {
+            try {
+                const res = await fetch(baseUrl + "berry/1");
+                const data = await res.json();
+                setBerry(data);
+                const itemRes = await fetch(data.item.url);
+                const itemData = await itemRes.json();
+                setBerryItem(itemData);
+                console.log('fetched');
+            } catch (error) {
+                console.log(error);
+            };
+        };
+        getBerry();
+    }, []);
 
     return (
     <> 
@@ -67,14 +67,14 @@ const HomePage = () => {
                 started just naviagate to the Pokemon or Berry page.
             </Typography>
         </Container>
-        {/* <Grid container spacing={5}>
+        <Grid container spacing={5}>
                 <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
                     {pokemon && <InfoDisplay pokemon={pokemon} />}
                 </Grid>
                 <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
                     {berry && berryItem && <BerryDisplay berry={berry} item={berryItem} />}
                 </Grid>
-        </Grid> */}
+        </Grid>
     </>
     )
 };
