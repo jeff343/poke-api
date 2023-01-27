@@ -37,9 +37,6 @@ const Searchbar = ({ setQuery, autoData }) => {
             >
                 <FormControl component='form' sx={{ width: 350 }}>
                     <Autocomplete 
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
                         disablePortal
                         sx={{
                             "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
@@ -52,6 +49,9 @@ const Searchbar = ({ setQuery, autoData }) => {
                         options={autoData}
                         getOptionLabel={(option) => option.name.toUpperCase()}
                         renderInput={(params) => <TextField {...params} label="Search" color="secondary"/>}
+                        onChange={(event, newValue) => {
+                            setValue(newValue);
+                        }}
                     />
                 </FormControl>
             </Grid>

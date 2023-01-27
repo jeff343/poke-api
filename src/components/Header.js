@@ -125,6 +125,21 @@ const Header = () => {
                                     textAlign="center"
                                     component={NavLink}
                                     to={{
+                                        pathname: '/'
+                                    }}
+                                >
+                                    Home
+                                </Typography>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography 
+                                    sx={{ 
+                                        textDecoration: 'none',
+                                        color: 'black'
+                                    }}
+                                    textAlign="center"
+                                    component={NavLink}
+                                    to={{
                                         pathname: '/pokemon'
                                     }}
                                 >
@@ -181,4 +196,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
