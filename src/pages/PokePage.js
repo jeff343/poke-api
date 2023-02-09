@@ -21,7 +21,6 @@ const PokePage = () => {
                 const data = await res.json();
                 setPokemon(data);
                 setPokeIdx(data.id - 1);
-                console.log('fetched');
             } catch (error) {
                 console.log(error);
             };
@@ -32,7 +31,7 @@ const PokePage = () => {
     useEffect(() => {
         const getAllPokemon = async() => {
             try {
-                const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
+                const res = await fetch(baseUrl + "pokemon?limit=150");
                 const data = await res.json();
                 setAllPokemon(data.results);
             } catch (error) {

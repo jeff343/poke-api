@@ -31,7 +31,6 @@ const InfoModal = ({ url }) => {
                 const res = await fetch(url);
                 const data = await res.json();
                 setModalData(data);
-                console.log('fetched modal');
             } catch (error) {
                 console.log(error);
             };

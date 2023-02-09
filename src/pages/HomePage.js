@@ -20,7 +20,6 @@ const HomePage = () => {
                 const res = await fetch(baseUrl + "pokemon/1");
                 const data = await res.json();
                 setPokemon(data);
-                console.log('fetched');
             } catch (error) {
                 console.log(error);
             };
@@ -37,7 +36,6 @@ const HomePage = () => {
                 const itemRes = await fetch(data.item.url);
                 const itemData = await itemRes.json();
                 setBerryItem(itemData);
-                console.log('fetched');
             } catch (error) {
                 console.log(error);
             };

@@ -21,7 +21,6 @@ const BerryPage = () => {
                 const itemRes = await fetch(data.item.url);
                 const itemData = await itemRes.json();
                 setBerryItem(itemData);
-                console.log('fetched');
             } catch (error) {
                 console.log(error);
             };
@@ -32,7 +31,7 @@ const BerryPage = () => {
     useEffect(() => {
         const getAllBerries = async() => {
             try {
-                const res = await fetch("https://pokeapi.co/api/v2/berry?limit=64");
+                const res = await fetch(baseUrl + "berry?limit=64");
                 const data = await res.json();
                 setAllBerries(data.results);
             } catch (error) {
