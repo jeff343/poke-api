@@ -16,70 +16,74 @@ const Searchbar = ({ setQuery, autoData }) => {
 
 
     return (
-        <Grid 
-            container 
-            component="section"
-            spacing={2}
-            sx={{
-                margin: 'auto',
-                marginTop: 5,
-                width: 'auto'
-            }}
-            maxWidth='lg'
-        >
-            <Grid 
-                item 
-                xs={12}
-                md={6}
-                display="flex" 
-                justifyContent="center" 
-                alignItems="center"
-            >
-                <FormControl component='form' sx={{ width: 350 }}>
-                    <Autocomplete 
-                        disablePortal
-                        sx={{
-                            "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
-                            {
-                              backgroundColor: "#bbdefb",
-                            },
-                          }}
-                        id="search-box"
-                        onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-                        options={autoData}
-                        getOptionLabel={(option) => option.name.toUpperCase()}
-                        renderInput={(params) => <TextField {...params} label="Search" color="secondary"/>}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
-                    />
-                </FormControl>
-            </Grid>
-            <Grid 
-                item 
-                xs={12} 
-                md={6} 
-                display="flex" 
-                justifyContent="center" 
-                alignItems="center"
-            >
-                <Button 
-                    aria-label="submit-search"
-                    variant="outlined" 
-                    startIcon={<SearchIcon />}
-                    sx={{ 
-                        height: 50, 
+        <>
+            {autoData &&
+                <Grid 
+                    container 
+                    component="section"
+                    spacing={2}
+                    sx={{
                         margin: 'auto',
-                        marginLeft: {md: 0}
+                        marginTop: 5,
+                        width: 'auto'
                     }}
-                    color='secondary'
-                    disabled={!value}
-                    onClick={() => handleClick()}
+                    maxWidth='lg'
                 >
-                    Search
-                </Button>
-            </Grid>
-        </Grid>
+                    <Grid 
+                        item 
+                        xs={12}
+                        md={6}
+                        display="flex" 
+                        justifyContent="center" 
+                        alignItems="center"
+                    >
+                        <FormControl component='form' sx={{ width: 350 }}>
+                            <Autocomplete 
+                                disablePortal
+                                sx={{
+                                    "& + .MuiAutocomplete-popper .MuiAutocomplete-option[aria-selected='true']":
+                                    {
+                                    backgroundColor: "#bbdefb",
+                                    },
+                                }}
+                                id="search-box"
+                                onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                                options={autoData}
+                                getOptionLabel={(option) => option.name.toUpperCase()}
+                                renderInput={(params) => <TextField {...params} label="Search" color="secondary"/>}
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+                            />
+                        </FormControl>
+                    </Grid>
+                    <Grid 
+                        item 
+                        xs={12} 
+                        md={6} 
+                        display="flex" 
+                        justifyContent="center" 
+                        alignItems="center"
+                    >
+                        <Button 
+                            aria-label="submit-search"
+                            variant="outlined" 
+                            startIcon={<SearchIcon />}
+                            sx={{ 
+                                height: 50, 
+                                margin: 'auto',
+                                marginLeft: {md: 0}
+                            }}
+                            color='secondary'
+                            disabled={!value}
+                            onClick={() => handleClick()}
+                        >
+                            Search
+                        </Button>
+                    </Grid>
+                </Grid>
+            }
+        </>
     )
 }
 

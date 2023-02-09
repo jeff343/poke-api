@@ -68,12 +68,12 @@ const HomePage = () => {
             </Typography>
         </Container>
         <Grid container spacing={5}>
-                <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
-                    {pokemon && <InfoDisplay pokemon={pokemon} />}
-                </Grid>
-                <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
-                    {berry && berryItem && <BerryDisplay berry={berry} item={berryItem} />}
-                </Grid>
+            <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
+                <InfoDisplay pokemon={pokemon} />
+            </Grid>
+            <Grid item xs={12} lg={6} maxWidth={750} marginX='auto'>
+                <BerryDisplay berry={berry} item={berryItem} />
+            </Grid>
         </Grid>
     </>
     )

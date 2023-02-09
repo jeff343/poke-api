@@ -13,6 +13,8 @@ const BerryPage = () => {
     useEffect(() => {
         const getBerry = async() => {
             try {
+                setBerry();
+                setBerryItem();
                 const res = await fetch(baseUrl + "berry/" + query);
                 const data = await res.json();
                 setBerry(data);
@@ -42,14 +44,10 @@ const BerryPage = () => {
     }, []);
 
     return (
-        <>
-            {berry && berryItem && allBerries &&
-                <Container maxWidth='lg'>
-                    <Searchbar setQuery={setQuery} autoData={allBerries}/>
-                    <BerryDisplay berry={berry} item={berryItem} />
-                </Container>
-            }
-        </>
+        <Container maxWidth='lg'>
+            <Searchbar setQuery={setQuery} autoData={allBerries}/>
+            <BerryDisplay berry={berry} item={berryItem} />
+        </Container>
     )
 };
 

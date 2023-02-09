@@ -16,6 +16,7 @@ const PokePage = () => {
     useEffect(() => {
         const getPokemon = async() => {
             try {
+                setPokemon()
                 const res = await fetch(baseUrl + "pokemon/" + query);
                 const data = await res.json();
                 setPokemon(data);
@@ -45,31 +46,27 @@ const PokePage = () => {
 
 
     return (
-        <>
-            {pokemon && allPokemon &&
-                <Grid 
-                    container 
-                    maxWidth='lg'
-                    margin='auto'
-                    spacing={3}
-                    >
-                    <Grid item md={8}>
-                        <Searchbar setQuery={setQuery} autoData={allPokemon}/>
-                        <InfoDisplay pokemon={pokemon} />
-                    </Grid>
-                    <Grid 
-                        item 
-                        xs={12}
-                        md={4}
-                        display='flex' 
-                        alignItems='center'
-                        justifyContent='center'    
-                    >
-                        <ListDisplay active={pokeIdx} allPokemon={allPokemon} />
-                    </Grid>
-                </Grid>
-            }
-        </>
+        <Grid 
+            container 
+            maxWidth='lg'
+            margin='auto'
+            spacing={3}
+            >
+            <Grid item md={8}>
+                <Searchbar setQuery={setQuery} autoData={allPokemon}/>
+                <InfoDisplay pokemon={pokemon} />
+            </Grid>
+            <Grid 
+                item 
+                xs={12}
+                md={4}
+                display='flex' 
+                alignItems='center'
+                justifyContent='center'    
+            >
+                {allPokemon && <ListDisplay active={pokeIdx} allPokemon={allPokemon} />}
+            </Grid>
+        </Grid>
     )
 };
 
