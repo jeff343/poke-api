@@ -60,7 +60,7 @@ const HomePage = () => {
                 Welcome to the Pokemon info site
             </Typography>
             <Typography variant="subtitle1" marginTop={3}>
-                This site contains information about the original 150 Pokemon, as well as all the berries from the games.
+                This site contains information about the original 151 Pokemon, as well as all the berries from the games.
                 The information is gathered from the <Link href="https://pokeapi.co/" target="_blank" rel="noopener">PokeApi</Link>. To get 
                 started just naviagate to the Pokemon or Berry page.
             </Typography>

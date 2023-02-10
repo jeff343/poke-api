@@ -1,4 +1,5 @@
 import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from '@mui/material/ListItem';
@@ -7,52 +8,63 @@ import ListItemText from '@mui/material/ListItemText';
 
 const ListDisplay = ({ setQuery, active, allPokemon }) => {
 
-    const pokeSlice = (arr) => {
-        const poke = [];
-        const roundedIndex = Math.floor(active/10) * 10;
-        for (let i = roundedIndex; i < (roundedIndex + 10); i++) {
-            poke.push({
-                name: arr[i].name, 
-                num: i});
-        };
-        return poke;
+    const handleClick = (n) => {
+        setQuery(n);
     };
 
-    const handleClick = (n) => {
-        setQuery(n)
-    }
-    const pokeArr = pokeSlice(allPokemon);
 
     return (
         <Paper
             component='aside'
+            elevation={5}
             sx={{
                 display: { xs: 'none', md: 'block' },
                 width: '80%',
                 minWidth: 300,
-                padding: 4,
-                margin: 'auto'
+                padding: 2,
+                margin: 'auto',
+                border: '3px solid red',
+                bgcolor: 'rgba(242,242,242,0.8)'
             }}
         >
-            <Typography component='h2' variant='h4'>
+            <Typography 
+                component='h2' 
+                variant='h4' 
+                textAlign='center' 
+                padding={2}
+            >
                 Pokemon:
             </Typography>
-            <List>
-                {pokeArr.map((pokemon) => {
-                    return (
-                        <ListItem key={pokemon.name}>
-                            <ListItemText 
-                                onClick={()=>handleClick(pokemon.name)}
-                                primary={`No:${pokemon.num + 1} ${pokemon.name.toUpperCase()}`} 
-                                primaryTypographyProps={{
-                                    fontWeight: pokemon.num===active ? 'bold' : 'none',
-                                    marginLeft: 2
-                                }}
-                            />
-                        </ListItem>
-                    )
-                })}
-            </List>
+            <Box
+                sx={{
+                    overflow: 'hidden',
+                    overflowY: 'scroll',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginBottom: '20px',
+                    height: '500px'
+                }}
+            >
+                <List>
+                    {allPokemon.map((pokemon, index) => {
+                        return (
+                            <ListItem key={pokemon.name} sx={{ padding: '0'}} >
+                                <ListItemText 
+                                    sx={{
+                                        cursor: 'pointer'
+                                    }}
+                                    onClick={()=>handleClick(pokemon.name)}
+                                    primary={`No ${index + 1}: ${pokemon.name.toUpperCase()}`} 
+                                    primaryTypographyProps={{
+                                        fontWeight: index===active ? 'bold' : 'none',
+                                        marginLeft: 2
+                                    }}
+                                />
+                            </ListItem>
+                        )
+                    })}
+                </List>
+            </Box>
         </Paper>
     )
 };

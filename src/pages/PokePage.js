@@ -31,7 +31,7 @@ const PokePage = () => {
     useEffect(() => {
         const getAllPokemon = async() => {
             try {
-                const res = await fetch(baseUrl + "pokemon?limit=150");
+                const res = await fetch(baseUrl + "pokemon?limit=151");
                 const data = await res.json();
                 setAllPokemon(data.results);
             } catch (error) {

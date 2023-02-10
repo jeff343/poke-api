@@ -16,7 +16,7 @@ const BerryDisplay = ({ berry, item }) => {
     return(
         <>
             {berry && item ?
-                <Grid container>
+                <Grid container marginTop={5}>
                     <Grid item xs={12} md={6} textAlign='center'>
                         <Typography component="h2" variant='h2'>
                             {firstToUpper(berry.name)}
