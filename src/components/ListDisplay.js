@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
 
-const ListDisplay = ({ active, allPokemon }) => {
+const ListDisplay = ({ setQuery, active, allPokemon }) => {
 
     const pokeSlice = (arr) => {
         const poke = [];
@@ -18,6 +18,9 @@ const ListDisplay = ({ active, allPokemon }) => {
         return poke;
     };
 
+    const handleClick = (n) => {
+        setQuery(n)
+    }
     const pokeArr = pokeSlice(allPokemon);
 
     return (
@@ -39,7 +42,8 @@ const ListDisplay = ({ active, allPokemon }) => {
                     return (
                         <ListItem key={pokemon.name}>
                             <ListItemText 
-                                primary={`No ${pokemon.num + 1}: ${pokemon.name.toUpperCase()}`} 
+                                onClick={()=>handleClick(pokemon.name)}
+                                primary={`No:${pokemon.num + 1} ${pokemon.name.toUpperCase()}`} 
                                 primaryTypographyProps={{
                                     fontWeight: pokemon.num===active ? 'bold' : 'none',
                                     marginLeft: 2

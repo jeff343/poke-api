@@ -44,7 +44,7 @@ const BerryPage = () => {
 
     return (
         <Container maxWidth='lg'>
-            <Searchbar setQuery={setQuery} autoData={allBerries}/>
+            {allBerries && <Searchbar setQuery={setQuery} autoData={allBerries}/>}
             <BerryDisplay berry={berry} item={berryItem} />
         </Container>
     )

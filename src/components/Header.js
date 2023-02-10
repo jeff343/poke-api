@@ -31,9 +31,7 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <IconButton 
-                        sx={{ display: { xs: 'none', md: 'flex'}}
-
-                        }
+                        sx={{ display: { xs: 'none', md: 'flex'}}}
                         component={NavLink}
                         to={{
                             pathname: '/'

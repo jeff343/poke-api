@@ -28,10 +28,7 @@ const InfoDisplay = ({ pokemon }) => {
                         justifyContent='space-between'    
                     >
                         <Typography variant='h3' component='h3'>
-                            {firstToUpper(pokemon.name)}
-                        </Typography>
-                        <Typography variant='h4' component='h3' display='inline'>
-                            No: {pokemon.id}
+                            No:{pokemon.id} {firstToUpper(pokemon.name)}
                         </Typography>
                     </Grid>
                     <Grid 
@@ -47,7 +44,7 @@ const InfoDisplay = ({ pokemon }) => {
                             style={{ height: 300, width: 'auto' }}    
                         />
                     </Grid>
-                    <Grid item sm={6} md={7}>
+                    <Grid display='flex' item sm={6} md={7}>
                         <Typography variant='h6' component='h4'>
                             Stats:
                         </Typography>

@@ -63,7 +63,7 @@ const PokePage = () => {
                 alignItems='center'
                 justifyContent='center'    
             >
-                {allPokemon && <ListDisplay active={pokeIdx} allPokemon={allPokemon} />}
+                {allPokemon && <ListDisplay active={pokeIdx} allPokemon={allPokemon} setQuery={setQuery} />}
             </Grid>
         </Grid>
     )
