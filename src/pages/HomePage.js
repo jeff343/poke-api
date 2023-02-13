@@ -5,43 +5,14 @@ import Link from "@mui/material/Link";
 import Grid from "@mui/material/Unstable_Grid2";
 import InfoDisplay from "../components/InfoDisplay";
 import BerryDisplay from "../components/BerryDisplay";
-import { baseUrl } from "../data/baseUrl";
-import { useState, useEffect } from "react";
+import useFetchBerry from "../hooks/useFetchBerry";
+import useFetchPokemon from "../hooks/useFetchPokemon";
 
 
 const HomePage = () => {
-    const [pokemon, setPokemon] = useState();
-    const [berry, setBerry] = useState();
-    const [berryItem, setBerryItem] = useState();
 
-    useEffect(() => {
-        const getPokemon = async() => {
-            try {
-                const res = await fetch(baseUrl + "pokemon/1");
-                const data = await res.json();
-                setPokemon(data);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getPokemon();
-    }, []);
-
-    useEffect(() => {
-        const getBerry = async() => {
-            try {
-                const res = await fetch(baseUrl + "berry/1");
-                const data = await res.json();
-                setBerry(data);
-                const itemRes = await fetch(data.item.url);
-                const itemData = await itemRes.json();
-                setBerryItem(itemData);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getBerry();
-    }, []);
+    const [ pokemon ] = useFetchPokemon('1')
+    const [berry, berryItem] = useFetchBerry('1');
 
     return (
     <> 

@@ -2,7 +2,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
+import useFetchModal from '../hooks/useFetchModal';
 
 
 const style = {
@@ -23,20 +24,7 @@ const InfoModal = ({ url }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const [modalData, setModalData] = useState()
-
-    useEffect(() => {
-        const getPokemon = async() => {
-            try {
-                const res = await fetch(url);
-                const data = await res.json();
-                setModalData(data);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getPokemon();
-    }, [url]);
+    const modalData = useFetchModal(url)
 
     return (
         <>

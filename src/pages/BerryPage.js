@@ -1,46 +1,16 @@
 import Container from "@mui/material/Container";
 import BerryDisplay from "../components/BerryDisplay";
 import Searchbar from "../components/Searchbar";
-import { baseUrl } from "../data/baseUrl";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import useFetchBerry from "../hooks/useFetchBerry";
+import useFetchAll from "../hooks/useFetchAll";
 
 const BerryPage = () => {
     const [query, setQuery] = useState('cheri');
-    const [berry, setBerry] = useState();
-    const [berryItem, setBerryItem] = useState();
-    const [allBerries, setAllBerries] = useState();
-
-    useEffect(() => {
-        const getBerry = async() => {
-            try {
-                setBerry();
-                setBerryItem();
-                const res = await fetch(baseUrl + "berry/" + query);
-                const data = await res.json();
-                setBerry(data);
-                const itemRes = await fetch(data.item.url);
-                const itemData = await itemRes.json();
-                setBerryItem(itemData);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getBerry();
-    }, [query]);
-
-    useEffect(() => {
-        const getAllBerries = async() => {
-            try {
-                const res = await fetch(baseUrl + "berry?limit=64");
-                const data = await res.json();
-                setAllBerries(data.results);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        
-        getAllBerries();
-    }, []);
+    const allQuery = "berry?limit=64"
+    
+    const allBerries = useFetchAll(allQuery);
+    const [berry, berryItem] = useFetchBerry(query);
 
     return (
         <Container maxWidth='lg'>

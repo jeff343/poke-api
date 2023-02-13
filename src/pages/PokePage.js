@@ -2,47 +2,18 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Searchbar from "../components/Searchbar";
 import InfoDisplay from "../components/InfoDisplay";
 import ListDisplay from "../components/ListDisplay";
-import { useEffect, useState } from "react";
-import { baseUrl } from "../data/baseUrl";
+import useFetchPokemon from "../hooks/useFetchPokemon";
+import useFetchAll from "../hooks/useFetchAll";
+import { useState } from "react";
 
 
 
 const PokePage = () => {
     const [query, setQuery] = useState('bulbasaur');
-    const [pokeIdx, setPokeIdx] = useState(0)
-    const [pokemon, setPokemon] = useState();
-    const [allPokemon, setAllPokemon] = useState();
+    const allQuery = "pokemon?limit=151"
 
-    useEffect(() => {
-        const getPokemon = async() => {
-            try {
-                setPokemon()
-                const res = await fetch(baseUrl + "pokemon/" + query);
-                const data = await res.json();
-                setPokemon(data);
-                setPokeIdx(data.id - 1);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        getPokemon();
-    }, [query]);
-
-    useEffect(() => {
-        const getAllPokemon = async() => {
-            try {
-                const res = await fetch(baseUrl + "pokemon?limit=151");
-                const data = await res.json();
-                setAllPokemon(data.results);
-            } catch (error) {
-                console.log(error);
-            };
-        };
-        
-        getAllPokemon();
-    }, []);
-
-
+    const [ pokemon, pokeIdx ] = useFetchPokemon(query);
+    const allPokemon = useFetchAll(allQuery);
 
     return (
         <Grid 
