@@ -11,7 +11,6 @@ const useFetchBerry = (query) => {
 
         const getBerry = async() => {
             try {
-                await timeout(2000);
                 const res = await fetch(baseUrl + "berry/" + query);
                 const data = await res.json();
                 setBerry(data);
@@ -23,7 +22,6 @@ const useFetchBerry = (query) => {
 
         const getBerryItem = async(url) => {
             try {
-                await timeout(2000);
                 const res = await fetch(url);
                 const data = await res.json();
                 setBerryItem(data);
