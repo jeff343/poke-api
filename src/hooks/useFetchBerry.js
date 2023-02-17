@@ -26,14 +26,14 @@ const useFetchBerry = (query) => {
                 const data = await res.json();
                 setBerryItem(data);
             } catch (error) {
-                console.log(error)
+                console.log(error);
             };
         };
 
         const getAllBerry = () => {
             getBerry()
-            .then(data => getBerryItem(data.item.url))
-        }
+            .then(data => getBerryItem(data.item.url));
+        };
 
         getAllBerry();
 
